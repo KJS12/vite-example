@@ -1,7 +1,6 @@
 import { Form, useFetcher, useLoaderData } from "react-router-dom";
 import { getContact, updateContact } from "../contacts";
 
-
 // Contact 컴포넌트 정의
 export default function Contact() {
     const {contact} = useLoaderData();
