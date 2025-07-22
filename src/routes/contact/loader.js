@@ -1,4 +1,4 @@
-import { getContact } from "../../utils/contacts";
+import { getContact } from "@utils/contacts";
 
 // loader
 export async function loader({ params }) {

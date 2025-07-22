@@ -1,4 +1,4 @@
-import { updateContact } from "../../utils/contacts";
+import { updateContact } from "@utils/contacts";
 
 // form action
 export async function action({ request, params }) {

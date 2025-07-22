@@ -1,4 +1,4 @@
-import { getContacts } from "../../utils/contacts";
+import { getContacts } from "@utils/contacts";
 
 // Root 컴포넌트 마운트 전 데이터 로딩중
 export async function loader({ request }) {

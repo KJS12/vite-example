@@ -1,5 +1,5 @@
 import { redirect } from "react-router-dom";
-import { createContact } from "../../utils/contacts";
+import { createContact } from "@utils/contacts";
 
 // 연락처 만들기
 export async function action() {
