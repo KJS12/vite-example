@@ -1,7 +1,7 @@
 import { Form, redirect, useLoaderData, useNavigate } from "react-router-dom";
 import { updateContact } from "../contacts";
 
-// 연락처 업데이트 컴포넌트 정의
+// Contact Edit 컴포넌트 정의
 export default function EditContact() {
     const { contact } = useLoaderData();
     const navigate = useNavigate();
