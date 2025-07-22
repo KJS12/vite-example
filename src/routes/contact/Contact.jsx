@@ -1,8 +1,8 @@
-import { Form, useFetcher, useLoaderData } from "react-router-dom";
-import { getContact, updateContact } from "../contacts";
+import { Form, useLoaderData } from "react-router-dom";
+import Favorite from "./Favorite";
 
 // Contact 컴포넌트 정의
-export default function Contact() {
+const Contact = () => {
     const {contact} = useLoaderData();
 
     return (
@@ -66,42 +66,4 @@ export default function Contact() {
     );
 }
 
-// loader
-export async function loader({ params }) {
-    const contact = await getContact(params.contactId);
-    if(!contact) {
-        throw new Response("", {
-            status: 404,
-            statusText: "Not Found",
-        });
-    }
-    return { contact };
-}
-
-// form action
-export async function action({ request, params }) {
-    const formData = await request.formData();
-    return updateContact(params.contactId, {
-        favorite: formData.get("favorite") === "true",
-    });
-}
-
-// 즐겨찾기
-function Favorite({ contact }) {
-    const fetcher = useFetcher();
-    const favorite = fetcher.formData
-        ? fetcher.formData.get("favorite") === "true"
-        : contact.favorite;
-
-    return (
-        <fetcher.Form method="post">
-            <button
-                name="favorite"
-                value={favorite ? "false" : "true"}
-                aria-label={ favorite ? "Remove from favorites" : "Add to favorites" }
-            >
-                {favorite ? "★" : "☆"}
-            </button>
-        </fetcher.Form>
-    );
-}
+export default Contact;

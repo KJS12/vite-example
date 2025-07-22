@@ -1,8 +1,7 @@
-import { Form, redirect, useLoaderData, useNavigate } from "react-router-dom";
-import { updateContact } from "../contacts";
+import { Form, useLoaderData, useNavigate } from "react-router-dom";
 
 // Contact Edit 컴포넌트 정의
-export default function EditContact() {
+const EditContact = () => {
     const { contact } = useLoaderData();
     const navigate = useNavigate();
 
@@ -65,11 +64,4 @@ export default function EditContact() {
     );
 }
 
-// formData를 사용하여 연락처 업데이트
-export async function action({ request, params }) {
-    const formData = await request.formData();
-    const updates = Object.fromEntries(formData);
-    await updateContact(params.contactId, updates);
-
-    return redirect(`/contacts/${params.contactId}`);
-}
+export default EditContact;
