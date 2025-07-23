@@ -2,8 +2,8 @@ import { Form, useLoaderData } from "react-router-dom";
 import Favorite from "./Favorite";
 import { ENV } from "@/env";
 
-const avatarUrl = ENV.AVATAR;
-const twitterUrl = ENV.TWITTER_URL;
+const avatarUrl = ENV.URL.AVATAR;
+const twitterUrl = ENV.URL.TWITTER_URL;
 
 // Contact 컴포넌트 정의
 const Contact = () => {
