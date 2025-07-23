@@ -1,4 +1,5 @@
 import { Form, useLoaderData, useNavigate } from "react-router-dom";
+import { Input, Textarea, Button } from "@shared";
 
 // Contact Edit 컴포넌트 정의
 const EditContact = () => {
@@ -9,56 +10,46 @@ const EditContact = () => {
         <Form method="post" id="contact-form">
             <p>
                 <span>Name</span>
-                <input
+                <Input.Box
                     placeholder="First"
                     aria-label="First name"
-                    type="text"
                     name="first"
                     defaultValue={contact?.first}
                 />
-                <input
+                <Input.Box
                     placeholder="Last"
                     aria-label="Last name"
-                    type="text"
                     name="last"
                     defaultValue={contact?.last}
                 />
             </p>
-            <label>
-                <span>Twitter</span>
-                <input
-                    type="text"
-                    name="twitter"
-                    placeholder="@jack"
-                    defaultValue={contact?.twitter}
-                />
-            </label>
-            <label>
-                <span>Avatar URL</span>
-                <input
-                    placeholder="https://example.com/avatar.jpg"
-                    aria-label="Avatar URL"
-                    type="text"
-                    name="avatar"
-                    defaultValue={contact?.avatar}
-                />
-            </label>
-            <label>
-                <span>Notes</span>
-                <textarea
-                    name="notes"
-                    defaultValue={contact?.notes}
-                    rows={6}
-                />
-            </label>
+            <Input.Label
+                title="Twitter"
+                name="twitter"
+                placeholder="@jack"
+                defaultValue={contact?.twitter}
+            />
+            <Input.Label
+                title="Avatar URL"
+                placeholder="https://example.com/avatar.jpg"
+                aria-label="Avatar URL"
+                name="avatar"
+                defaultValue={contact?.avatar}
+            />
+            <Textarea.Label
+                title="Notes"
+                name="notes"
+                defaultValue={contact?.notes}
+            />
             <p>
-                <button type="submit">Save</button>
-                <button
-                    type="button"
-                    onClick={() => {
-                        navigate(-1);
-                    }}
-                >Cancel</button>
+                <Button
+                    type="submit"
+                    btnName="Save"
+                />
+                <Button
+                    btnName="Cancel"
+                    onClick={() => { navigate(-1); }}
+                />
             </p>
         </Form>
     );

@@ -1,6 +1,7 @@
 import { Form, useLoaderData } from "react-router-dom";
 import Favorite from "./Favorite";
 import { ENV } from "@/env";
+import { Button } from "@shared";
 
 const avatarUrl = ENV.URL.AVATAR;
 const twitterUrl = ENV.URL.TWITTER_URL;
@@ -29,40 +30,40 @@ const Contact = () => {
                     ) : (
                         <i>No Name</i>
                     )}{" "}
+
+                    {/* 즐겨찾기 */}
                     <Favorite contact={contact} />
                 </h1>
 
-                {contact.twitter && (
-                    <p>
-                        <a
-                            target="_blank"
-                            href={`${twitterUrl}/${contact.twitter}`}
-                        >
-                            {contact.twitter}
-                        </a>
-                    </p>
-                )}
+                {
+                    contact.twitter && (
+                        <p>
+                            <a
+                                target="_blank"
+                                href={`${twitterUrl}/${contact.twitter}`}
+                            >
+                                {contact.twitter}
+                            </a>
+                        </p>
+                    )
+                }
 
                 {contact.notes && <p>{contact.notes}</p>}
 
                 <div>
                     <Form action="edit">
-                        <button type="submit">Edit</button>
+                        <Button type="submit" btnName="Edit"/>
                     </Form>
                     <Form
                         method="post"
                         action="destroy"
                         onSubmit={(event) => {
-                            if (
-                                !confirm(
-                                    "Please confirm you want to delete this record."
-                                )
-                            ) {
+                            if (!confirm("Please confirm you want to delete this record.")) {
                                 event.preventDefault();
                             }
                         }}
                     >
-                        <button type="submit">Delete</button>
+                        <Button type="submit" btnName="Delete"/>
                     </Form>
                 </div>
             </div>

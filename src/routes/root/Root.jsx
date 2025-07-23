@@ -1,5 +1,7 @@
 import { Outlet, Link, useLoaderData, Form, NavLink, useNavigation, useSubmit } from "react-router-dom";
 import { useEffect } from "react";
+import ContactList from "./components/ContactList";
+import { Input, Button } from "@shared";
 
 // Root 컴포넌트 정의
 export default function Root() {
@@ -21,7 +23,7 @@ export default function Root() {
                 <h1>React Router Contacts</h1>
                 <div>
                     <Form id="search-form" role="search">
-                        <input
+                        <Input.Box
                             id="q"
                             className={searching ? "loading" : ""}
                             aria-label="Search contacts"
@@ -47,42 +49,12 @@ export default function Root() {
                         />
                     </Form>
                     <Form method="post">
-                        <button type="submit">New</button>
+                        <Button type="submit" btnName="New" />
                     </Form>
                 </div>
-                <nav>
-                    {
-                        contacts.length ? (
-                            <ul>
-                                {contacts.map((contact) => (
-                                    <li key={contact.id}>
-                                        <NavLink
-                                            to={`/contacts/${contact.id}`}
-                                            className={
-                                                navigation.state === "loading" ? "loading" : ""
-                                            }
-                                        >
-                                            {
-                                                contact.first || contact.last ? (
-                                                    <>
-                                                        {contact.first} {contact.last}
-                                                    </>
-                                                ) : (
-                                                    <i>No Name</i>
-                                                )
-                                            }{" "}
-                                            {contact.favorite && <span>★</span>}
-                                        </NavLink>
-                                    </li>
-                                ))}
-                            </ul>
-                        ) : (
-                            <p>
-                                <i>No contacts</i>
-                            </p>
-                        )
-                    }
-                </nav>
+
+                {/* 연락처 리스트 */}
+                <ContactList contacts={contacts}/>
             </div>
             <div id="detail">
                 <Outlet />

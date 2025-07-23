@@ -29,6 +29,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src'), // @ → src/
       '@layout': path.resolve(__dirname, 'src/layout'),
       '@routes': path.resolve(__dirname, 'src/routes'),
+      '@shared': path.resolve(__dirname, 'src/shared'),
       '@utils': path.resolve(__dirname, 'src/utils'),
     }
   }
