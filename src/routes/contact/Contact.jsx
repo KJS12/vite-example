@@ -1,5 +1,9 @@
 import { Form, useLoaderData } from "react-router-dom";
 import Favorite from "./Favorite";
+import { ENV } from "@/env";
+
+const avatarUrl = ENV.AVATAR;
+const twitterUrl = ENV.TWITTER_URL;
 
 // Contact 컴포넌트 정의
 const Contact = () => {
@@ -12,7 +16,7 @@ const Contact = () => {
                     key={contact.avatar}
                     src={
                         contact.avatar ||
-                        `https://robohash.org/${contact.id}.png?size=200x200`
+                        `${avatarUrl}/${contact.id}.png?size=200x200`
                     }
                 />
             </div>
@@ -32,7 +36,7 @@ const Contact = () => {
                     <p>
                         <a
                             target="_blank"
-                            href={`https://twitter.com/${contact.twitter}`}
+                            href={`${twitterUrl}/${contact.twitter}`}
                         >
                             {contact.twitter}
                         </a>
