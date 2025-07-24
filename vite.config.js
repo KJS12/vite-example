@@ -27,9 +27,11 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'), // @ → src/
-      '@layout': path.resolve(__dirname, 'src/layout'),
+      '@components': path.resolve(__dirname, 'src/components'),
+      '@layouts': path.resolve(__dirname, 'src/layouts'),
       '@routes': path.resolve(__dirname, 'src/routes'),
       '@shared': path.resolve(__dirname, 'src/shared'),
+      '@store': path.resolve(__dirname, 'src/store'),
       '@utils': path.resolve(__dirname, 'src/utils'),
     }
   }

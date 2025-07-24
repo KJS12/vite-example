@@ -1,6 +1,11 @@
 import { NavLink } from "react-router-dom";
+import { useContactContext } from "@store/Context/ContactContext";
 
-const ContactList = ({contacts}) => {
+// 연락처 목록
+const ContactItem = () => {
+    const contactContext = useContactContext();
+    const { contacts } = contactContext;
+
     return (
         <nav>
             {
@@ -36,4 +41,4 @@ const ContactList = ({contacts}) => {
     )
 }
 
-export default ContactList;
+export default ContactItem;

@@ -1,5 +1,6 @@
 import { Form, useLoaderData, useNavigate } from "react-router-dom";
 import { Input, Textarea, Button } from "@shared";
+import { ENV } from "@/env";
 
 // Contact Edit 컴포넌트 정의
 const EditContact = () => {
@@ -31,7 +32,7 @@ const EditContact = () => {
             />
             <Input.Label
                 title="Avatar URL"
-                placeholder="https://example.com/avatar.jpg"
+                placeholder={`${ENV.URL.AVATAR_IMG}`}
                 aria-label="Avatar URL"
                 name="avatar"
                 defaultValue={contact?.avatar}
@@ -42,14 +43,8 @@ const EditContact = () => {
                 defaultValue={contact?.notes}
             />
             <p>
-                <Button
-                    type="submit"
-                    btnName="Save"
-                />
-                <Button
-                    btnName="Cancel"
-                    onClick={() => { navigate(-1); }}
-                />
+                <Button type="submit" btnName="Save" />
+                <Button type="button" btnName="Cancel" onClick={() => navigate(-1)} />
             </p>
         </Form>
     );
