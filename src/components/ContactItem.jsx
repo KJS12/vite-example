@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useContactContext } from "@store/Context/ContactContext";
+import { Icon } from "@shared";
 
 // 연락처 목록
 const ContactItem = () => {
@@ -26,7 +27,7 @@ const ContactItem = () => {
                                             <i>No Name</i>
                                         )
                                     }{" "}
-                                    {contact.favorite && <span>★</span>}
+                                    {contact.favorite && <span><Icon type="starFill" /></span>}
                                 </NavLink>
                             </li>
                         ))}

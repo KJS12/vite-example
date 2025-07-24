@@ -1,6 +1,6 @@
-import { Form, useNavigation, useSubmit } from "react-router-dom";
+import { Form, Link, useNavigation, useSubmit } from "react-router-dom";
 import { useEffect } from "react";
-import { Input, Button } from "@shared";
+import { Input, Button, Icon } from "@shared";
 import { ContactItem } from "@components";
 import { useContactContext } from "@store/Context/ContactContext";
 
@@ -22,6 +22,11 @@ const Sidebar = () => {
         <>
             <h1>React Router Contacts</h1>
             <div>
+                {/* Home */}
+                <Link to="/">
+                    <Icon type="home" size="35" className="fill-blue-700"/>
+                </Link>
+
                 {/* 검색하기 */}
                 <Form id="search-form" role="search">
                     <Input.Box

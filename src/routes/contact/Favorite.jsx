@@ -1,4 +1,5 @@
 import { useFetcher } from "react-router-dom";
+import { Icon } from "@shared";
 
 // 즐겨찾기 컴포넌트
 const Favorite = ({ contact }) => {
@@ -14,7 +15,7 @@ const Favorite = ({ contact }) => {
                 value={favorite ? "false" : "true"}
                 aria-label={ favorite ? "Remove from favorites" : "Add to favorites" }
             >
-                {favorite ? "★" : "☆"}
+                {favorite ? <Icon type="starFill" /> : <Icon type="star" />}
             </button>
         </fetcher.Form>
     );
